@@ -1,0 +1,60 @@
+:root{
+  --navy:#17375e; --navy-d:#0e2540; --blue:#2f6aa3; --ink:#1c2430;
+  --muted:#5b6675; --paper:#fbfaf7; --line:#dde2e9; --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* Barra lateral (igual a la identidad del CV en PDF) */
+.side{background:var(--navy);color:#e8eef6;padding:40px 28px;position:sticky;top:0;height:100vh;overflow:auto;display:flex;flex-direction:column;gap:26px}
+.side img{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center 20%;border:4px solid rgba(255,255,255,.85);align-self:center}
+.side h1{font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:2.1rem;line-height:1.1;text-align:center;color:#fff}
+.side .rol{text-align:center;font-size:.95rem;color:#b9cce3;margin-top:-14px}
+.side nav{display:flex;flex-direction:column;gap:4px}
+.side nav a{color:#e8eef6;text-decoration:none;padding:10px 14px;border-radius:6px;font-weight:500}
+.side nav a:hover{background:rgba(255,255,255,.1)}
+.side nav a[aria-current="page"]{background:#fff;color:var(--navy);font-weight:700}
+.side .contacto{font-size:.9rem;display:flex;flex-direction:column;gap:6px;margin-top:auto;border-top:1px solid rgba(255,255,255,.2);padding-top:18px}
+.side .contacto a{color:#fff;word-break:break-all}
+.side .contacto span{color:#b9cce3}
+
+/* Contenido */
+main{padding:64px min(6vw,72px) 72px;max-width:900px}
+main h2{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:2.2rem;color:var(--navy);line-height:1.15;margin-bottom:8px}
+main h3{font-size:1.1rem;color:var(--navy-d);margin-bottom:4px}
+.lead{font-size:1.2rem;color:var(--ink);max-width:62ch;margin:14px 0 40px}
+section{margin-bottom:52px}
+section>h2{padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:22px;font-size:1.6rem}
+p{max-width:68ch}
+.muted{color:var(--muted);font-size:.95rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);padding:8px 14px;border-radius:4px;font-weight:600;font-size:.95rem}
+
+.item{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px 26px;margin-bottom:18px}
+.item header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:10px}
+.item .fecha{color:var(--muted);font-size:.9rem;font-weight:600}
+.item ul{padding-left:1.2rem;display:grid;gap:6px}
+.item ul li::marker{color:var(--blue)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.grid .item{margin:0;display:flex;flex-direction:column;gap:10px}
+.grid .item img{width:100%;height:150px;object-fit:cover;border-radius:4px;background:var(--navy)}
+.btn{display:inline-block;margin-top:auto;padding:10px 18px;border-radius:5px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;align-self:flex-start}
+.btn:hover{background:var(--blue)}
+.btn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.acciones{display:flex;gap:12px;flex-wrap:wrap}
+footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+
+@media (max-width:860px){
+  body{grid-template-columns:1fr}
+  .side{position:static;height:auto;padding:28px 20px}
+  .side nav{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .side .contacto{margin-top:0}
+  main{padding:36px 20px 56px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.side nav,.btn{display:none}body{display:block}.side{position:static;height:auto}}
